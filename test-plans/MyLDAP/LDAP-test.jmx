@@ -1,0 +1,440 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.6.3">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Test Plan">
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+    </TestPlan>
+    <hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="LDAP Controlled Test">
+        <intProp name="ThreadGroup.num_threads">1</intProp>
+        <intProp name="ThreadGroup.ramp_time">1</intProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller">
+          <stringProp name="LoopController.loops">1</stringProp>
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+        </elementProp>
+      </ThreadGroup>
+      <hashTree>
+        <ConfigTestElement guiclass="LdapExtConfigGui" testclass="ConfigTestElement" testname="LDAP Extended Request Defaults" enabled="true">
+          <stringProp name="servername"></stringProp>
+          <stringProp name="port"></stringProp>
+          <stringProp name="rootdn"></stringProp>
+          <stringProp name="scope">2</stringProp>
+          <stringProp name="countlimit"></stringProp>
+          <stringProp name="timelimit"></stringProp>
+          <stringProp name="attributes"></stringProp>
+          <stringProp name="return_object">false</stringProp>
+          <stringProp name="deref_aliases">false</stringProp>
+          <stringProp name="connection_timeout"></stringProp>
+          <stringProp name="parseflag">false</stringProp>
+          <stringProp name="secure">false</stringProp>
+          <stringProp name="trustall">false</stringProp>
+          <stringProp name="user_dn"></stringProp>
+          <stringProp name="user_pw"></stringProp>
+          <stringProp name="comparedn"></stringProp>
+          <stringProp name="comparefilt"></stringProp>
+          <stringProp name="modddn"></stringProp>
+          <stringProp name="newdn"></stringProp>
+          <stringProp name="test">unbind</stringProp>
+        </ConfigTestElement>
+        <hashTree/>
+        <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller">
+          <stringProp name="LoopController.loops">1</stringProp>
+        </LoopController>
+        <hashTree>
+          <LDAPExtSampler guiclass="LdapExtTestSamplerGui" testclass="LDAPExtSampler" testname="Thread Bind">
+            <stringProp name="servername">localhost</stringProp>
+            <stringProp name="port">10389</stringProp>
+            <stringProp name="rootdn">dc=example,dc=com</stringProp>
+            <stringProp name="scope">2</stringProp>
+            <stringProp name="countlimit"></stringProp>
+            <stringProp name="timelimit"></stringProp>
+            <stringProp name="attributes"></stringProp>
+            <stringProp name="return_object">false</stringProp>
+            <stringProp name="deref_aliases">false</stringProp>
+            <stringProp name="connection_timeout">5000</stringProp>
+            <stringProp name="parseflag">false</stringProp>
+            <stringProp name="secure">false</stringProp>
+            <stringProp name="trustall">false</stringProp>
+            <stringProp name="user_dn">uid=john.doe,ou=users,dc=example,dc=com</stringProp>
+            <stringProp name="user_pw">password123</stringProp>
+            <stringProp name="comparedn"></stringProp>
+            <stringProp name="comparefilt"></stringProp>
+            <stringProp name="modddn"></stringProp>
+            <stringProp name="newdn"></stringProp>
+            <stringProp name="test">bind</stringProp>
+          </LDAPExtSampler>
+          <hashTree/>
+          <LDAPExtSampler guiclass="LdapExtTestSamplerGui" testclass="LDAPExtSampler" testname="Search">
+            <stringProp name="servername"></stringProp>
+            <stringProp name="port"></stringProp>
+            <stringProp name="rootdn"></stringProp>
+            <stringProp name="scope">2</stringProp>
+            <stringProp name="countlimit">0</stringProp>
+            <stringProp name="timelimit">0</stringProp>
+            <stringProp name="attributes">cn;dn;objectClass</stringProp>
+            <stringProp name="return_object">false</stringProp>
+            <stringProp name="deref_aliases">false</stringProp>
+            <stringProp name="connection_timeout"></stringProp>
+            <stringProp name="parseflag">false</stringProp>
+            <stringProp name="secure">false</stringProp>
+            <stringProp name="trustall">false</stringProp>
+            <stringProp name="user_dn"></stringProp>
+            <stringProp name="user_pw"></stringProp>
+            <stringProp name="comparedn"></stringProp>
+            <stringProp name="comparefilt"></stringProp>
+            <stringProp name="modddn"></stringProp>
+            <stringProp name="newdn"></stringProp>
+            <stringProp name="test">search</stringProp>
+            <stringProp name="search">ou=users</stringProp>
+            <stringProp name="searchfilter">(sn=Doe)</stringProp>
+          </LDAPExtSampler>
+          <hashTree/>
+          <LDAPExtSampler guiclass="LdapExtTestSamplerGui" testclass="LDAPExtSampler" testname="Compare" enabled="true">
+            <stringProp name="servername"></stringProp>
+            <stringProp name="port"></stringProp>
+            <stringProp name="rootdn"></stringProp>
+            <stringProp name="scope">2</stringProp>
+            <stringProp name="countlimit"></stringProp>
+            <stringProp name="timelimit"></stringProp>
+            <stringProp name="attributes"></stringProp>
+            <stringProp name="return_object">false</stringProp>
+            <stringProp name="deref_aliases">false</stringProp>
+            <stringProp name="connection_timeout"></stringProp>
+            <stringProp name="parseflag">false</stringProp>
+            <stringProp name="secure">false</stringProp>
+            <stringProp name="trustall">false</stringProp>
+            <stringProp name="user_dn"></stringProp>
+            <stringProp name="user_pw"></stringProp>
+            <stringProp name="comparedn">uid=john.doe,ou=users</stringProp>
+            <stringProp name="comparefilt">mail=nujohn@example.com</stringProp>
+            <stringProp name="modddn"></stringProp>
+            <stringProp name="newdn"></stringProp>
+            <stringProp name="test">compare</stringProp>
+          </LDAPExtSampler>
+          <hashTree/>
+          <LDAPExtSampler guiclass="LdapExtTestSamplerGui" testclass="LDAPExtSampler" testname="Single bind/unbind" enabled="true">
+            <stringProp name="servername">localhost</stringProp>
+            <stringProp name="port">10389</stringProp>
+            <stringProp name="rootdn">dc=example,dc=com</stringProp>
+            <stringProp name="scope">2</stringProp>
+            <stringProp name="countlimit"></stringProp>
+            <stringProp name="timelimit"></stringProp>
+            <stringProp name="attributes"></stringProp>
+            <stringProp name="return_object">false</stringProp>
+            <stringProp name="deref_aliases">false</stringProp>
+            <stringProp name="connection_timeout">5000</stringProp>
+            <stringProp name="parseflag">false</stringProp>
+            <stringProp name="secure">false</stringProp>
+            <stringProp name="trustall">false</stringProp>
+            <stringProp name="user_dn">uid=john.doe,ou=users,dc=example,dc=com</stringProp>
+            <stringProp name="user_pw">password123</stringProp>
+            <stringProp name="comparedn"></stringProp>
+            <stringProp name="comparefilt"></stringProp>
+            <stringProp name="modddn"></stringProp>
+            <stringProp name="newdn"></stringProp>
+            <stringProp name="test">sbind</stringProp>
+          </LDAPExtSampler>
+          <hashTree/>
+          <LDAPExtSampler guiclass="LdapExtTestSamplerGui" testclass="LDAPExtSampler" testname="Add" enabled="true">
+            <stringProp name="servername"></stringProp>
+            <stringProp name="port"></stringProp>
+            <stringProp name="rootdn"></stringProp>
+            <stringProp name="scope">2</stringProp>
+            <stringProp name="countlimit"></stringProp>
+            <stringProp name="timelimit"></stringProp>
+            <stringProp name="attributes"></stringProp>
+            <stringProp name="return_object">false</stringProp>
+            <stringProp name="deref_aliases">false</stringProp>
+            <stringProp name="connection_timeout"></stringProp>
+            <stringProp name="parseflag">false</stringProp>
+            <stringProp name="secure">false</stringProp>
+            <stringProp name="trustall">false</stringProp>
+            <stringProp name="user_dn"></stringProp>
+            <stringProp name="user_pw"></stringProp>
+            <stringProp name="comparedn"></stringProp>
+            <stringProp name="comparefilt"></stringProp>
+            <stringProp name="modddn"></stringProp>
+            <stringProp name="newdn"></stringProp>
+            <stringProp name="test">add</stringProp>
+            <stringProp name="base_entry_dn">cn=idiots,ou=groups</stringProp>
+            <elementProp name="arguments" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="objectClass" elementType="Argument">
+                  <stringProp name="Argument.name">objectClass</stringProp>
+                  <stringProp name="Argument.value">groupOfNames</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+                <elementProp name="objectClass" elementType="Argument">
+                  <stringProp name="Argument.name">objectClass</stringProp>
+                  <stringProp name="Argument.value">top</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+                <elementProp name="cn" elementType="Argument">
+                  <stringProp name="Argument.name">cn</stringProp>
+                  <stringProp name="Argument.value">idiots</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+                <elementProp name="member" elementType="Argument">
+                  <stringProp name="Argument.name">member</stringProp>
+                  <stringProp name="Argument.value">ou=users,dc=example,dc=com</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+          </LDAPExtSampler>
+          <hashTree/>
+          <LDAPExtSampler guiclass="LdapExtTestSamplerGui" testclass="LDAPExtSampler" testname="Modify" enabled="true">
+            <stringProp name="servername"></stringProp>
+            <stringProp name="port"></stringProp>
+            <stringProp name="rootdn"></stringProp>
+            <stringProp name="scope">2</stringProp>
+            <stringProp name="countlimit"></stringProp>
+            <stringProp name="timelimit"></stringProp>
+            <stringProp name="attributes"></stringProp>
+            <stringProp name="return_object">false</stringProp>
+            <stringProp name="deref_aliases">false</stringProp>
+            <stringProp name="connection_timeout"></stringProp>
+            <stringProp name="parseflag">false</stringProp>
+            <stringProp name="secure">false</stringProp>
+            <stringProp name="trustall">false</stringProp>
+            <stringProp name="user_dn"></stringProp>
+            <stringProp name="user_pw"></stringProp>
+            <stringProp name="comparedn"></stringProp>
+            <stringProp name="comparefilt"></stringProp>
+            <stringProp name="modddn"></stringProp>
+            <stringProp name="newdn"></stringProp>
+            <stringProp name="test">modify</stringProp>
+            <stringProp name="base_entry_dn">uid=john.doe,ou=users</stringProp>
+            <elementProp name="ldaparguments" elementType="LDAPArguments" guiclass="LDAPArgumentsPanel" testclass="LDAPArguments" testname="LDAP Extended Request Defaults">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="mail" elementType="LDAPArgument">
+                  <stringProp name="Argument.name">mail</stringProp>
+                  <stringProp name="Argument.value">newjohn@example.com</stringProp>
+                  <stringProp name="Argument.opcode">replace</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+          </LDAPExtSampler>
+          <hashTree/>
+          <LDAPExtSampler guiclass="LdapExtTestSamplerGui" testclass="LDAPExtSampler" testname="Rename entry" enabled="true">
+            <stringProp name="servername"></stringProp>
+            <stringProp name="port"></stringProp>
+            <stringProp name="rootdn"></stringProp>
+            <stringProp name="scope">2</stringProp>
+            <stringProp name="countlimit"></stringProp>
+            <stringProp name="timelimit"></stringProp>
+            <stringProp name="attributes"></stringProp>
+            <stringProp name="return_object">false</stringProp>
+            <stringProp name="deref_aliases">false</stringProp>
+            <stringProp name="connection_timeout"></stringProp>
+            <stringProp name="parseflag">false</stringProp>
+            <stringProp name="secure">false</stringProp>
+            <stringProp name="trustall">false</stringProp>
+            <stringProp name="user_dn"></stringProp>
+            <stringProp name="user_pw"></stringProp>
+            <stringProp name="comparedn"></stringProp>
+            <stringProp name="comparefilt"></stringProp>
+            <stringProp name="modddn">cn=devs,ou=groups</stringProp>
+            <stringProp name="newdn">cn=developers,ou=groups</stringProp>
+            <stringProp name="test">rename</stringProp>
+          </LDAPExtSampler>
+          <hashTree/>
+          <LDAPExtSampler guiclass="LdapExtTestSamplerGui" testclass="LDAPExtSampler" testname="Delete" enabled="true">
+            <stringProp name="servername"></stringProp>
+            <stringProp name="port"></stringProp>
+            <stringProp name="rootdn"></stringProp>
+            <stringProp name="scope">2</stringProp>
+            <stringProp name="countlimit"></stringProp>
+            <stringProp name="timelimit"></stringProp>
+            <stringProp name="attributes"></stringProp>
+            <stringProp name="return_object">false</stringProp>
+            <stringProp name="deref_aliases">false</stringProp>
+            <stringProp name="connection_timeout"></stringProp>
+            <stringProp name="parseflag">false</stringProp>
+            <stringProp name="secure">false</stringProp>
+            <stringProp name="trustall">false</stringProp>
+            <stringProp name="user_dn"></stringProp>
+            <stringProp name="user_pw"></stringProp>
+            <stringProp name="comparedn"></stringProp>
+            <stringProp name="comparefilt"></stringProp>
+            <stringProp name="modddn"></stringProp>
+            <stringProp name="newdn"></stringProp>
+            <stringProp name="test">delete</stringProp>
+            <stringProp name="delete">cn=idiots,ou=groups</stringProp>
+          </LDAPExtSampler>
+          <hashTree/>
+          <LDAPExtSampler guiclass="LdapExtTestSamplerGui" testclass="LDAPExtSampler" testname="Thread Unbind" enabled="true">
+            <stringProp name="servername"></stringProp>
+            <stringProp name="port"></stringProp>
+            <stringProp name="rootdn"></stringProp>
+            <stringProp name="scope">2</stringProp>
+            <stringProp name="countlimit"></stringProp>
+            <stringProp name="timelimit"></stringProp>
+            <stringProp name="attributes"></stringProp>
+            <stringProp name="return_object">false</stringProp>
+            <stringProp name="deref_aliases">false</stringProp>
+            <stringProp name="connection_timeout"></stringProp>
+            <stringProp name="parseflag">false</stringProp>
+            <stringProp name="secure">false</stringProp>
+            <stringProp name="trustall">false</stringProp>
+            <stringProp name="user_dn"></stringProp>
+            <stringProp name="user_pw"></stringProp>
+            <stringProp name="comparedn"></stringProp>
+            <stringProp name="comparefilt"></stringProp>
+            <stringProp name="modddn"></stringProp>
+            <stringProp name="newdn"></stringProp>
+            <stringProp name="test">unbind</stringProp>
+          </LDAPExtSampler>
+          <hashTree/>
+        </hashTree>
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <url>true</url>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename">H:\apache-jmeter-5.6.3\bin\performance-testing\run-results\MyLDAP\results-tree.csv</stringProp>
+        </ResultCollector>
+        <hashTree/>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="LDAP Simple Test">
+        <intProp name="ThreadGroup.num_threads">4</intProp>
+        <intProp name="ThreadGroup.ramp_time">1</intProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller">
+          <stringProp name="LoopController.loops">4</stringProp>
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+        </elementProp>
+      </ThreadGroup>
+      <hashTree>
+        <ConfigTestElement guiclass="LoginConfigGui" testclass="ConfigTestElement" testname="Login Config Element">
+          <stringProp name="ConfigTestElement.username">uid=admin,ou=system</stringProp>
+          <stringProp name="ConfigTestElement.password">secret</stringProp>
+        </ConfigTestElement>
+        <hashTree/>
+        <LDAPSampler guiclass="LdapTestSamplerGui" testclass="LDAPSampler" testname="Search">
+          <stringProp name="servername">localhost</stringProp>
+          <stringProp name="port">10389</stringProp>
+          <stringProp name="rootdn">dc=example,dc=com</stringProp>
+          <boolProp name="user_defined">false</boolProp>
+          <stringProp name="test">search</stringProp>
+          <stringProp name="search"></stringProp>
+          <stringProp name="searchfilter"></stringProp>
+          <stringProp name="ConfigTestElement.username"></stringProp>
+          <stringProp name="ConfigTestElement.password"></stringProp>
+        </LDAPSampler>
+        <hashTree/>
+        <LDAPSampler guiclass="LdapTestSamplerGui" testclass="LDAPSampler" testname="Add">
+          <stringProp name="servername">localhost</stringProp>
+          <stringProp name="port">10389</stringProp>
+          <stringProp name="rootdn">dc=example,dc=com</stringProp>
+          <boolProp name="user_defined">false</boolProp>
+          <stringProp name="test">add</stringProp>
+          <stringProp name="base_entry_dn"></stringProp>
+          <elementProp name="arguments" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="ConfigTestElement.username"></stringProp>
+          <stringProp name="ConfigTestElement.password"></stringProp>
+        </LDAPSampler>
+        <hashTree/>
+        <LDAPSampler guiclass="LdapTestSamplerGui" testclass="LDAPSampler" testname="Modify">
+          <stringProp name="servername">localhost</stringProp>
+          <stringProp name="port">10389</stringProp>
+          <stringProp name="rootdn">dc=example,dc=com</stringProp>
+          <boolProp name="user_defined">false</boolProp>
+          <stringProp name="test">modify</stringProp>
+          <stringProp name="base_entry_dn"></stringProp>
+          <elementProp name="arguments" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="ConfigTestElement.username"></stringProp>
+          <stringProp name="ConfigTestElement.password"></stringProp>
+        </LDAPSampler>
+        <hashTree/>
+        <LDAPSampler guiclass="LdapTestSamplerGui" testclass="LDAPSampler" testname="Delete">
+          <stringProp name="servername">localhost</stringProp>
+          <stringProp name="port">10389</stringProp>
+          <stringProp name="rootdn">dc=example,dc=com</stringProp>
+          <boolProp name="user_defined">false</boolProp>
+          <stringProp name="test">delete</stringProp>
+          <stringProp name="delete"></stringProp>
+          <stringProp name="ConfigTestElement.username"></stringProp>
+          <stringProp name="ConfigTestElement.password"></stringProp>
+        </LDAPSampler>
+        <hashTree/>
+        <ResultCollector guiclass="TableVisualizer" testclass="ResultCollector" testname="View Results in Table">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <url>true</url>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename">H:\apache-jmeter-5.6.3\bin\performance-testing\run-results\MyLDAP\results-table.csv</stringProp>
+        </ResultCollector>
+        <hashTree/>
+      </hashTree>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>

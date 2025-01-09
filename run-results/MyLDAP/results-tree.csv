@@ -1,0 +1,10 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect
+1736279273795,17,Thread Bind,0,Success,LDAP Users 1-1,text,true,,278,0,1,1,null,0,0,0
+1736279273830,3,Search,0,Success,LDAP Users 1-1,text,true,,352,0,1,1,null,0,0,0
+1736279273833,1,Compare,0,Success,LDAP Users 1-1,text,true,,253,0,1,1,null,0,0,0
+1736279273835,2,Single bind/unbind,0,Success,LDAP Users 1-1,text,true,,279,0,1,1,null,0,0,0
+1736279273838,93,Add,0,Success,LDAP Users 1-1,text,true,,296,0,1,1,null,0,0,0
+1736279273932,69,Modify,0,Success,LDAP Users 1-1,text,true,,233,0,1,1,null,0,0,0
+1736279274001,98,Rename entry,0,Success,LDAP Users 1-1,text,true,,218,0,1,1,null,0,0,0
+1736279274099,110,Delete,0,Success,LDAP Users 1-1,text,true,,158,0,1,1,null,0,0,0
+1736279274209,0,Thread Unbind,0,Success,LDAP Users 1-1,text,true,,173,0,1,1,null,0,0,0
