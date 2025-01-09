@@ -1,5 +1,3 @@
-# Performance Testing Repository
-
 ## Overview
 This repository contains performance test plans and resources designed to evaluate and measure the performance of various systems. The repository includes:
 
