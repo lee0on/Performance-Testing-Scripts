@@ -1,0 +1,34 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect
+1744575106212,1198,Открыть главную страницу сайта,200,OK,Thread Group 1-1,text,false,"The operation lasted too long: It took 1,198 milliseconds, but should not have lasted longer than 600 milliseconds.",6252,481,1,1,https://www.automationexercise.com/,1194,0,377
+1744575107412,449,Нажать кнопку Signup/Login,200,OK,Thread Group 1-1,text,true,,3284,539,1,1,https://www.automationexercise.com/login,448,0,0
+1744575107861,305,Нажать кнопку Signup,403,Forbidden,Thread Group 1-1,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[403]]]
+
+****** comparison: [[[200]]]
+
+/",2508,722,1,1,https://www.automationexercise.com/signup,305,0,0
+1744575108168,242,Нажать кнопку Create Account,403,Forbidden,Thread Group 1-1,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[403]]]
+
+****** comparison: [[[200]]]
+
+/",2504,1021,1,1,https://www.automationexercise.com/signup,241,0,0
+1744575108411,243,Нажать кнопку Continue,200,OK,Thread Group 1-1,text,true,,3218,555,1,1,https://www.automationexercise.com/account_created,242,0,0
+1744575108655,403,Переход на главную страницу,200,OK,Thread Group 1-1,text,true,,6267,549,1,1,https://www.automationexercise.com/,401,0,0
+1744575109060,270,Открыть главную страницу сайта,200,OK,Thread Group 1-1,text,true,,6264,534,1,1,https://www.automationexercise.com/,260,0,0
+1744575109330,252,Добавить товар в корзину,200,OK,Thread Group 1-1,text,true,,1207,461,1,1,https://www.automationexercise.com/add_to_cart/2,251,0,0
+1744575109582,513,Нажать кнопку View Cart,200,OK,Thread Group 1-1,text,true,,3281,523,1,1,https://www.automationexercise.com/login,504,0,0
+1744575110095,322,Нажать кнопку Proceed To Checkout,200,OK,Thread Group 1-1,text,true,,3662,543,1,1,https://www.automationexercise.com/view_cart,310,0,0
+1744575110417,244,Нажать кнопку Place Order,200,OK,Thread Group 1-1,text,true,,3836,551,1,1,https://www.automationexercise.com/checkout,244,0,0
+1744575110662,231,Заполнить данные платежной карты,200,OK,Thread Group 1-1,text,true,,3579,549,1,1,https://www.automationexercise.com/payment,230,0,0
+1744575110893,239,Нажать кнопку Pay and Confirm Order,403,Forbidden,Thread Group 1-1,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[403]]]
+
+****** comparison: [[[200]]]
+
+/",2512,840,1,1,https://www.automationexercise.com/payment,239,0,0
+1744575111133,248,Нажать кнопку Continue,200,OK,Thread Group 1-1,text,true,,3192,558,1,1,https://www.automationexercise.com/payment_done/1800,248,0,0
+1744575111381,315,Переход на главную страницу,200,OK,Thread Group 1-1,text,true,,6262,551,1,1,https://www.automationexercise.com/,314,0,0
